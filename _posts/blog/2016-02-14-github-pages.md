@@ -33,7 +33,8 @@ category: blog
 
 话说beiyuu这个样式，所有外链都有个小图标，鼠标Hover变成红色，还是挺别出心裁的。看了一下，是通过Js给a标签加了个类external实现的。
 
-##Jekyll模板系统
+
+## Jekyll模板系统
 
 下面都是从Beiyuu那篇文章里抄的。
 
@@ -41,7 +42,7 @@ category: blog
 
 你可以直接fork[我的项目][11]，然后改名，就有了你自己的满足Jekyll要求的文档了，当然你也可以按照下面的介绍自己创建。
 
-###Jekyll基本结构
+### Jekyll基本结构
 **Jekyll的核心其实就是一个文本的转换引擎**，用你最喜欢的标记语言写文档，可以是Markdown、Textile或者HTML等等，再通过`layout`将文档拼装起来，根据你设置的URL规则来展现，这些都是通过严格的配置文件来定义，最终的产出就是web页面。
 
 基本的Jekyll结构如下：
@@ -59,25 +60,25 @@ category: blog
 
 
 简单介绍一下他们的作用：
-####_config.yml
+#### _config.yml
 配置文件，用来定义你想要的效果，设置之后就不用关心了。
 
-####_includes
+#### _includes
 可以用来存放一些小的可复用的模块，方便通过`{ % include file.ext %}`（去掉前两个{中或者{与%中的空格，下同）灵活的调用。这条命令会调用_includes/file.ext文件。
 
-####_layouts
+#### _layouts
 这是模板文件存放的位置。模板需要通过[YAML front matter][9]来定义，后面会讲到，`{ { content }}`标记用来将数据插入到这些模板中来。
 
-####_posts
+#### _posts
 你的动态内容，一般来说就是你的博客正文存放的文件夹。他的命名有严格的规定，必须是`2012-02-22-artical-title.MARKUP`这样的形式，MARKUP是你所使用标记语言的文件后缀名，根据_config.yml中设定的链接规则，可以根据你的文件名灵活调整，文章的日期和标记语言后缀与文章的标题的独立的。
 
-####_site
+#### _site
 这个是Jekyll生成的最终的文档，不用去关心。最好把他放在你的`.gitignore`文件中忽略它。
 
-####其他文件夹
+#### 其他文件夹
 你可以创建任何的文件夹，在根目录下面也可以创建任何文件，假设你创建了`project`文件夹，下面有一个`github-pages.md`的文件，那么你就可以通过`yoursite.com/project/github-pages`访问的到，如果你是使用一级域名的话。文件后缀可以是`.html`或者`markdown`或者`textile`。这里还有很多的例子：[https://github.com/mojombo/jekyll/wiki/Sites](https://github.com/mojombo/jekyll/wiki/Sites)
 
-###Jekyll的配置
+### Jekyll的配置
 Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去一一追究了，很多配置虽有用但是一般不需要去关心，[官方配置文档][10]有很详细的说明，确实需要了可以去这里查，我们主要说两个比较重要的东西，一个是`Permalink`，还有就是自定义项。
 
 `Permalink`项用来定义你最终的文章链接是什么形式，他有下面几个变量：
@@ -102,7 +103,7 @@ Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去
 
 自定义项的内容，例如我们定义了`title:BeiYuu的博客`这样一项，那么你就可以在文章中使用`{ { site.title }}`来引用这个变量了，非常方便定义些全局变量。
 
-###YAML Front Matter和模板变量
+### YAML Front Matter和模板变量
 对于使用YAML定义格式的文章，Jekyll会特别对待，他的格式要求比较严格，必须是这样的形式：
 
     ---
@@ -122,7 +123,7 @@ Jekyll的配置写在_config.yml文件中，可配置项有很多，我们不去
 模板变量，我们之前也涉及了不少了，还有其他需要的变量，可以参考官方的文档：[https://github.com/mojombo/jekyll/wiki/template-data](https://github.com/mojombo/jekyll/wiki/template-data "Jekyll Template Data")
 
 
-##结语
+## 结语
 
 简单的搭建github page就是这样了，至于替换域名，还是等我以后买了域名再说吧……
 
